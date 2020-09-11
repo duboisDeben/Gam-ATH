@@ -1,0 +1,418 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/**********************************************************************************************
+                                H1 de la page d'accueil
+***********************************************************************************************/
+
+.container .home-title {
+    position: relative;
+    background-color: #000;
+    background-image: linear-gradient(to left, #fdeff9, #ec38bc, #7303c0, #03001e);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+     z-index: 2; 
+     opacity: .7;
+     font-size: 3em;
+}
+
+/****************************************************************************************************
+                                ANIMATION Keyframes
+*****************************************************************************************************/
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 10%;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 10%;
+    }
+}
+@keyframes drop {
+    0%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 1;
+        border-radius: 10%;
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+        border-radius: 10%;
+    }
+}
+
+@keyframes gauchedroite {
+    0% {
+        transform:  translateX(0)  rotate(0deg) ;
+        opacity: 1;
+        border-radius: 10%;
+      }
+      100% {
+        transform:  translate(2000px)  rotate(720deg) ;
+        opacity: 0.5;
+        border-radius: 5%;
+      }
+}
+
+
+@keyframes droitegauche {
+    0% {
+        transform:  translateX(0)  rotate(0deg) ;
+        opacity: 1;
+        border-radius: 10%;
+      }
+      100% {
+        transform:  translate(2000px)  rotate(0deg) ;
+        opacity: 1;
+        border-radius: 10%;
+      }
+}
+
+@keyframes slide {
+    0%{
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    50%{
+        translate: translateX(500px) rotate(360deg);
+        opacity: .5;
+    }
+    100%{
+        transform: translateX(1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+    
+}
+/*************************************************************************************************
+                                  DECORATION DU BACKGROUND
+ *************************************************************************************************/
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    /* background: #4e54c8; */
+    /* background: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b); */
+    background: #03001e;   /*fallback for old browsers*/ 
+    background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);   /*Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    /* animation: animate 19s linear infinite; */
+    
+}
+
+/* .background li:nth-child(0) {
+    left: 63%;
+    width: 158px;
+    height: 158px;
+    bottom: -158px;
+    animation-delay: 1s;
+} */
+
+
+/***************************************************************************************************************
+                            CARTES MENANT A LA PAGE DE JEUX
+***************************************************************************************************************/
+
+/************** CARD ADDITION  ************/
+.background li:nth-child(4) {
+    left: 4%;
+    width: 162px;
+    height: 162px;
+    bottom: -162px;
+    border: 1px solid #f1f1f1;
+    animation-delay: 4s;
+    animation: animate 19s linear infinite;  
+}
+.background li:nth-child(4):hover {
+    animation-play-state:paused;
+} 
+/*******************************
+    FIN CARD ADDITION   *******/
+
+/************** CARD MINUS *****************/
+.background li:nth-child(8) {
+    left: 1%;
+    width: 180px;
+    height: 200px;
+    bottom: 176px; 
+    animation-delay: 8s;
+    border: 1px solid #F1F1F1;
+    animation: droitegauche 19s linear infinite; 
+}
+.background li:nth-child(8):hover {
+    animation-play-state:paused;
+}
+/************************ FIN CARD MINUS
+***************************************/
+
+/******************** CARD TIMES *************/
+.background li:nth-child(12) {
+    left: 3%;
+    width: 200px;
+    height: 200px;
+    bottom: 60px;
+    border: 1px solid #f1f1f1;
+    animation-delay: 2s;
+    animation: gauchedroite 25s reverse infinite; 
+}
+.background li:nth-child(12):hover {
+    animation-play-state:paused;
+} 
+/******************* FIN CARD TIMES  ************/
+
+/************************** CARD DIVISION  
+*****************************************/
+.background li:nth-child(16) {
+    left: 33%;
+    width: 172px;
+    height: 172px;
+    bottom: -172px;
+    border: 1px solid #f1f1f1;
+    animation-delay: 6s;
+    animation: drop 19s linear infinite;
+}
+.background li:nth-child(16):hover {
+    animation-play-state:paused;
+}
+/*******************************FIN CARD DIVISION
+*************************************************/
+
+.add, .minus, .times, .divide {
+    /* centrer */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    /* deco */
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+/***********************************************************************************************************
+                            LES AUTRES ELEMENTS FLOTTANTS
+************************************************************************************************************/
+
+/************* SIGNE DIVISE AVEC BEFORE AFTER *******************/
+.background li:nth-child(1) {
+    left: 21%;
+    width: 82px;
+    height: 22px;
+    top: 212px;
+    position: relative;
+    animation-delay: 5s;
+    animation: droitegauche 15s reverse infinite; 
+
+}
+.background li:nth-child(1)::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.589);
+    border-radius: 50%;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+
+}
+.background li:nth-child(1)::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.589);
+    /* background: #000; */
+    border-radius: 50%;
+    position: absolute;
+    top: 200%; 
+    left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+    
+}
+/************************************************
+FIN SIGNE DIVISE AVEC ::BEFORE ::AFTER *********/
+
+/************ LES CARTES AVEC FONT-AWESOME  *********/
+                /* DIVISE */
+.background li:nth-child(17) {
+    left: 84%;
+    width: 162px;
+    height: 162px;
+    bottom: -162px;
+    animation-delay: 19s;
+    animation: drop 10s linear infinite;
+    background: red;
+}
+                /* MULTIPLIE */
+.background li:nth-child(18){
+    background-color: rgb(17 30 185);
+    left: 61%;
+    width: 162px;
+    height: 162px;
+    bottom: -162px;
+    animation-delay: 22s;
+    animation: animate 19s linear infinite;
+}
+                /* SOUSTRAIT */
+.background li:nth-child(19){
+    background: rgb(111 129 162 / 20%);
+    left: 1%;
+    width: 162px;
+    height: 162px;
+    bottom: 0;
+    animation-delay: 0s;
+    animation: droitegauche 35s reverse infinite;
+}
+                /* ADDITIONNE */
+.background li:nth-child(20){
+    background: rgb(111 129 162 / 20%);
+    left: 1%;
+    width: 162px;
+    height: 162px;
+    top: 100px;
+    animation-delay: 9s;
+    animation: droitegauche 9s linear infinite;
+}
+
+/* Font-Awesome propriété de division */
+.divise, .multiplie, .soustrait, .additionne {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    color: rgba(255, 255, 255, 0.589);
+}
+
+/****************** FIN DES CARTES FONT-AWESOME
+************************************************/
+
+/* .background li:nth-child(2) {
+    left: 50%;
+    width: 148px;
+    height: 148px;
+    bottom: -148px;
+    animation-delay: 1s;
+}
+.background li:nth-child(3) {
+    left: 55%;
+    width: 171px;
+    height: 171px;
+    bottom: -171px;
+    animation-delay: 12s;
+}
+.background li:nth-child(10) {
+    left: 12%;
+    clip-path: inset(34% 0 46% 0);
+    width: 111px;
+    height: 111px;
+    bottom: -111px;
+    animation-delay: 19s;
+} 
+.background li:nth-child(11) {
+    left: 16%;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    width: 111px;
+    height: 111px;
+    bottom: 0px;
+    animation-delay: 6s;
+    animation: slide 19s linear infinite; 
+}  */
+
+
+
+
+
+
+
+
+
+
+
+                    /* CSS FICHIER ADDITION HTML */
+
+
+/*********************
+    Flip-Card Content
+**********************/
+ /* h1 {
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+
+}
+.flip-box {
+    width: 300px;
+    height: 500px;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    perspective: 200px;
+  }
+  
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box-front {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
+  }
+  main h2 {
+      font-size: 12em;
+  }
+  
+  .flip-box-back {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  } */
+  
